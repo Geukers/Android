@@ -40,7 +40,7 @@ public class DBSQLiteManager extends SQLiteOpenHelper {
         return c;
     }
 
-    public void getContacts()
+    public void getUsers()
     {
         // Select All Query
         String selectQuery = "SELECT  * FROM " + User.TABLE_NAME + " ORDER BY " +
@@ -67,7 +67,7 @@ public class DBSQLiteManager extends SQLiteOpenHelper {
         db.close();
     }
 
-    public ArrayList<User> getContact_list()
+    public ArrayList<User> getUser_list()
     {
         // return contact list
         return user_list;
