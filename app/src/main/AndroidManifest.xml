@@ -20,7 +20,9 @@
         <activity android:name=".ItemActivity" />
         <activity android:name=".List_Item" />
         <activity android:name=".Home" />
-        <activity android:name=".Register"></activity>
+        <activity android:name=".Register" />
+        <activity android:name=".Contact_Us" />
+        <activity android:name=".About_Us"></activity>
     </application>
 
 </manifest>
