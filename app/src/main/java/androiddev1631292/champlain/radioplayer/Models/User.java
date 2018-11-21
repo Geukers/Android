@@ -9,7 +9,7 @@ public class User {
 
     // DB create
     public static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + "("
-            + COLUMN_USERNAME + " TEXT"
+            + COLUMN_USERNAME + " TEXT,"
             + COLUMN_EMAIL + " TEXT,"
             + COLUMN_PASSWORD + " TEXT)";
 

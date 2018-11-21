@@ -30,7 +30,7 @@ public class DBSQLiteManager extends SQLiteOpenHelper {
 
         values.put(User.COLUMN_USERNAME, c.getUsername());
         values.put(User.COLUMN_EMAIL, c.getEmail());
-         values.put(User.COLUMN_PASSWORD, c.getPassword());
+        values.put(User.COLUMN_PASSWORD, c.getPassword());
 
         long id = db.insert(User.TABLE_NAME, null, values);
         db.close();
@@ -70,6 +70,7 @@ public class DBSQLiteManager extends SQLiteOpenHelper {
     public ArrayList<User> getUser_list()
     {
         // return contact list
+
         return user_list;
     }
 
