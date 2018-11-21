@@ -51,6 +51,11 @@ public class Login extends AppCompatActivity {
                 EditText TxtUsername = findViewById(R.id.BoxUsername);
                 EditText TxtPassword = findViewById(R.id.BoxPassword);
 
+                if((TxtUsername.getText().toString()).equals("Admin") && (TxtPassword.getText().toString()).equals("Admin"))
+                {
+                    startActivity(new Intent(Login.this, AddMasterSong.class));
+                }
+
                 for (User u: users) {
 
                 if(u.getUsername().equals(TxtUsername.getText().toString()) && u.getPassword().equals(TxtPassword.getText().toString())){

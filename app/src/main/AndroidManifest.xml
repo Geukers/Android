@@ -20,7 +20,8 @@
         <activity android:name=".ItemActivity" />
         <activity android:name=".List_Item" />
         <activity android:name=".Home" />
-        <activity android:name=".Register"></activity>
+        <activity android:name=".Register" />
+        <activity android:name=".AddMasterSong" />
     </application>
 
 </manifest>
