@@ -28,9 +28,9 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         manager = new DBSQLiteManager(this);
-        users = manager.getUser_list();
+        
         manager.getUsers();
-
+        users = manager.getUser_list();
 
 
         Button RegisterBtn = findViewById(R.id.Register);
@@ -71,8 +71,6 @@ public class Register extends AppCompatActivity {
                         TxtEmail.setText("");
                         TxtPassword.setText("");
                         TxtPassword2.setText("");
-
-                        startActivity(new Intent(Register.this, Login.class));
                     } else {
                         error.setText("Password do not match");
                     }

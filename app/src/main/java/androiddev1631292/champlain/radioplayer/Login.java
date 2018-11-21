@@ -35,8 +35,8 @@ public class Login extends AppCompatActivity {
 
 
         manager = new DBSQLiteManager(this);
-        users = manager.getUser_list();
         manager.getUsers();
+        users = manager.getUser_list();
 
         Button LoginBtn = findViewById(R.id.BtnLogin);
 
@@ -55,14 +55,15 @@ public class Login extends AppCompatActivity {
 
                 if(u.getUsername().equals(TxtUsername.getText().toString()) && u.getPassword().equals(TxtPassword.getText().toString())){
                     IsValid = true;
-                    break;
-                }
+                    startActivity(new Intent(Login.this, Home.class));
+                }else{
+                    error.setText("Invalid Username/Password");
                 }
 
-                if(IsValid)
-                    startActivity(new Intent(Login.this, Home.class));
-                else
-                    error.setText("Invalid Username/Password");
+                }
+
+
+
             }
         });
 
