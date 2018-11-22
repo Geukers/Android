@@ -23,7 +23,8 @@
         <activity android:name=".Register" />
         <activity android:name=".AddMasterSong" />
         <activity android:name=".About_Us" />
-        <activity android:name=".Contact_Us"></activity>
+        <activity android:name=".Contact_Us" />
+        <activity android:name=".News"></activity>
     </application>
 
 </manifest>

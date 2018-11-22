@@ -17,10 +17,21 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home2);
 
+        Button BtnNews = findViewById(R.id.BtnNews);
         Button BtnAdd = findViewById(R.id.BtnAddSongs);
         Button BtnList = findViewById(R.id.BtnList);
         Button BtnAbout = findViewById(R.id.BtnAbout);
         Button BtnContact = findViewById(R.id.BtnContact);
+
+
+        BtnNews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(Home.this, News.class));
+
+            }
+        });
 
         BtnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
