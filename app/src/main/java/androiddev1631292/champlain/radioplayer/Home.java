@@ -19,6 +19,8 @@ public class Home extends AppCompatActivity {
 
         Button BtnAdd = findViewById(R.id.BtnAddSongs);
         Button BtnList = findViewById(R.id.BtnList);
+        Button BtnAbout = findViewById(R.id.BtnAbout);
+        Button BtnContact = findViewById(R.id.BtnContact);
 
         BtnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,5 +39,24 @@ public class Home extends AppCompatActivity {
 
             }
         });
+
+        BtnAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(Home.this, About_Us.class));
+
+            }
+        });
+
+        BtnContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(Home.this, Contact_Us.class));
+
+            }
+        });
+
     }
 }
