@@ -17,13 +17,23 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home2);
 
-        Button RegisterBtn = findViewById(R.id.BtnAddSongs);
+        Button BtnAdd = findViewById(R.id.BtnAddSongs);
+        Button BtnList = findViewById(R.id.BtnList);
 
-        RegisterBtn.setOnClickListener(new View.OnClickListener() {
+        BtnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 startActivity(new Intent(Home.this, AddMasterSong.class));
+
+            }
+        });
+
+        BtnList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(Home.this, HomeActivity.class));
 
             }
         });
