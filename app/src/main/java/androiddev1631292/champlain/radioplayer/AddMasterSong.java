@@ -1,5 +1,6 @@
 package androiddev1631292.champlain.radioplayer;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,6 +31,7 @@ public class AddMasterSong extends AppCompatActivity {
         manager.getMasterSongs();
 
         Button RegisterBtn = findViewById(R.id.AddSong);
+        Button BackBtn = findViewById(R.id.BtnBack);
 
         RegisterBtn.setOnClickListener(new View.OnClickListener() {
 
@@ -52,9 +54,25 @@ public class AddMasterSong extends AppCompatActivity {
 
                 addMasterSong(newSong);
 
+                name1.setText("");
+                artist1.setText("");
+                album1.setText("");
+                genre1.setText("");
+                year1.setText("");
+
                 Toast toast = Toast.makeText(getApplicationContext(), "Song Added", Toast.LENGTH_SHORT);
                 toast.show();
 
+            }
+        });
+
+
+        BackBtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(AddMasterSong.this, Home.class));
             }
         });
     }
