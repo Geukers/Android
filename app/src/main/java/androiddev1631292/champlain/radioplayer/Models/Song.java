@@ -20,7 +20,7 @@ public class Song {
             + COLUMN_GENRE + " TEXT,"
             + COLUMN_YEAR + " TEXT)";
 
-    private Integer ID;
+    public Integer ID;
     public String name;
     public String artist;
     public String album;

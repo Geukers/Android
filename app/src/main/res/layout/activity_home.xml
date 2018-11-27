@@ -5,10 +5,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".HomeActivity">
+    tools:context=".Home">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <TextView
+        android:id="@+id/TxtHome"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="Home"
+        android:textAlignment="center"
+        android:textSize="56sp" />
+
+    <Button
+        android:id="@+id/BtnNews"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="News" />
+
+    <Button
+        android:id="@+id/BtnAbout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="About Us" />
+
+    <Button
+        android:id="@+id/BtnContact"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="Contact Us" />
+
+    <Button
+        android:id="@+id/BtnList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="Your Playlist" />
+
+    <Button
+        android:id="@+id/BtnAddSongs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="Add Songs" />
+
 </LinearLayout>

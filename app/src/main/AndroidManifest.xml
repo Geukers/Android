@@ -16,15 +16,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".AddSongActivity" />
         <activity android:name=".ItemActivity" />
         <activity android:name=".List_Item" />
         <activity android:name=".Home" />
         <activity android:name=".Register" />
-        <activity android:name=".AddMasterSong" />
+        <activity android:name=".AddMasterSong">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".About_Us" />
         <activity android:name=".Contact_Us" />
-        <activity android:name=".News"></activity>
+        <activity android:name=".News" />
+        <activity android:name=".Playlist"></activity>
     </application>
 
 </manifest>

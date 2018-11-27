@@ -31,7 +31,6 @@ public class AddMasterSong extends AppCompatActivity {
         manager.getMasterSongs();
 
         Button RegisterBtn = findViewById(R.id.AddSong);
-        Button BackBtn = findViewById(R.id.BtnBack);
 
         RegisterBtn.setOnClickListener(new View.OnClickListener() {
 
@@ -63,16 +62,6 @@ public class AddMasterSong extends AppCompatActivity {
                 Toast toast = Toast.makeText(getApplicationContext(), "Song Added", Toast.LENGTH_SHORT);
                 toast.show();
 
-            }
-        });
-
-
-        BackBtn.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                startActivity(new Intent(AddMasterSong.this, Home.class));
             }
         });
     }

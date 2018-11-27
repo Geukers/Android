@@ -53,7 +53,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
         LayoutInflater inflater = LayoutInflater.from(context);
 
         // Inflate the custom layout
-        View songView = inflater.inflate(R.layout.activity_list__item, parent, false);
+        View songView = inflater.inflate(R.layout.activity_master_list_item, parent, false);
 
         // Return a new holder instance
         ViewHolder viewHolder = new ViewHolder(songView);

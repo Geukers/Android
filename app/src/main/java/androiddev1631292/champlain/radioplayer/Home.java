@@ -5,17 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-
-import androiddev1631292.champlain.radioplayer.Models.Song;
 
 public class Home extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home2);
+        setContentView(R.layout.activity_home);
 
         Button BtnNews = findViewById(R.id.BtnNews);
         Button BtnAdd = findViewById(R.id.BtnAddSongs);
@@ -37,7 +33,7 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(Home.this, AddMasterSong.class));
+                startActivity(new Intent(Home.this, AddSongActivity.class));
 
             }
         });
@@ -46,7 +42,7 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(Home.this, HomeActivity.class));
+                startActivity(new Intent(Home.this, Playlist.class));
 
             }
         });
