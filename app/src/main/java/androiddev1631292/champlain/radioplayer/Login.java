@@ -1,6 +1,8 @@
 package androiddev1631292.champlain.radioplayer;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -60,12 +62,26 @@ public class Login extends AppCompatActivity {
 
                 if(u.getUsername().equals(TxtUsername.getText().toString()) && u.getPassword().equals(TxtPassword.getText().toString())){
                     IsValid = true;
+
+                    /*
+                    SharedPreferences Radio = getSharedPreferences("Radio", MODE_PRIVATE);
+                    SharedPreferences.Editor prefEditor = Radio.edit();
+                    prefEditor.putString("UserName", u.getUsername());
+                    prefEditor.commit();
+                    */
+
+                    SharedPreferences preferences = getSharedPreferences("Radio", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("Username", u.getUsername());
+                    editor.commit();
+
                     break;
                 }
                 }
 
-                if(IsValid)
+                if(IsValid) {
                     startActivity(new Intent(Login.this, Home.class));
+                }
                 else
                     error.setText("Invalid Username/Password");
             }

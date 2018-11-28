@@ -1,7 +1,9 @@
 package androiddev1631292.champlain.radioplayer.DB;
 
+import androiddev1631292.champlain.radioplayer.Models.AddedSong;
 import androiddev1631292.champlain.radioplayer.Models.Song;
 import androiddev1631292.champlain.radioplayer.Models.User;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -14,6 +16,7 @@ public class DBSQLiteManager extends SQLiteOpenHelper {
 
     private static ArrayList<User> user_list = new ArrayList<>();
     private static ArrayList<Song> master_list = new ArrayList<>();
+    private static ArrayList<AddedSong> added_songs_list = new ArrayList<>();
 
     // Database Version
     private static final int DATABASE_VERSION = 1;
@@ -82,6 +85,7 @@ public class DBSQLiteManager extends SQLiteOpenHelper {
 
         db.execSQL(User.CREATE_TABLE);
         db.execSQL(Song.CREATE_TABLE);
+        db.execSQL(AddedSong.CREATE_TABLE);
     }
 
     @Override
@@ -151,5 +155,63 @@ public class DBSQLiteManager extends SQLiteOpenHelper {
 
         return master_list;
     }
+
+
+    //
+    //Add songs to AddedSong
+    //
+
+    public AddedSong addSong(AddedSong c)
+    {
+        SQLiteDatabase db= this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(AddedSong.COLUMN_ID, c.getID());
+        values.put(AddedSong.COLUMN_SONGID, c.getSongID());
+        values.put(AddedSong.COLUMN_USERNAME, c.getUsername());
+
+        long id = db.insert(AddedSong.TABLE_NAME, null, values);
+        db.close();
+
+        c.setID((int)id);
+        added_songs_list.add(c);
+
+        return c;
+    }
+
+    public void getAddedSong()
+    {
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + AddedSong.TABLE_NAME + " ORDER BY " +
+                AddedSong.COLUMN_ID + " DESC";
+
+        added_songs_list.clear();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                AddedSong c = new AddedSong();
+                c.setID(cursor.getInt(cursor.getColumnIndex(AddedSong.COLUMN_ID)));
+                c.setSongID(cursor.getInt(cursor.getColumnIndex(AddedSong.COLUMN_SONGID)));
+                c.setUsername(cursor.getString(cursor.getColumnIndex(AddedSong.COLUMN_USERNAME)));
+
+                added_songs_list.add(c);
+            } while (cursor.moveToNext());
+        }
+
+        // close db connection
+        db.close();
+    }
+
+    public ArrayList<AddedSong> getAddedSong_list()
+    {
+        // return contact list
+
+        return added_songs_list;
+    }
+
 
 }

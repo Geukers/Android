@@ -42,14 +42,12 @@ public class AddSongActivity extends AppCompatActivity {
 
         rvContacts.addItemDecoration(new DividerItemDecoration(getApplicationContext(),DividerItemDecoration.VERTICAL));
 
-        //contacts = DBManager.getContact_list();
-
         manager = new DBSQLiteManager(this);
 
         songs = manager.getMaster_list();
         manager.getMasterSongs();
 
-        adapter = new SongAdapter(songs);
+        adapter = new SongAdapter(songs, this, manager);
         rvContacts.setAdapter(adapter);
         rvContacts.setLayoutManager(new LinearLayoutManager(this));
     }
