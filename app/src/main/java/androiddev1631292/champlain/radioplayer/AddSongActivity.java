@@ -49,6 +49,7 @@ public class AddSongActivity extends AppCompatActivity {
 
         adapter = new SongAdapter(songs, this, manager);
         rvContacts.setAdapter(adapter);
+
         rvContacts.setLayoutManager(new LinearLayoutManager(this));
     }
 }
