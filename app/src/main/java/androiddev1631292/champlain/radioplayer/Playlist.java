@@ -21,7 +21,7 @@ public class Playlist extends AppCompatActivity {
 
     ArrayList<AddedSong> addedSongs;
     ArrayList<Song> songs;
-    ArrayList<Song> list;
+    ArrayList<Song> list = new ArrayList<Song>();
     DBSQLiteManager manager;
     AddedSongAdapter adapter;
 
@@ -60,7 +60,7 @@ public class Playlist extends AppCompatActivity {
         {
             for(Song s : songs)
             {
-                if(t == as.getUsername() && s.getID() == as.getSongID())
+                if(t.equals(as.getUsername()) && s.getID().equals(as.getSongID()))
                 {
                     list.add(s);
                 }
@@ -70,5 +70,53 @@ public class Playlist extends AppCompatActivity {
         adapter = new AddedSongAdapter(list);
         rvContacts.setAdapter(adapter);
         rvContacts.setLayoutManager(new LinearLayoutManager(this));
+/*
+        RecyclerView rvContacts = findViewById(R.id.ReAddedSongs);
+
+        rvContacts.addItemDecoration(new DividerItemDecoration(getApplicationContext(),DividerItemDecoration.VERTICAL));
+
+        manager = new DBSQLiteManager(this);
+
+        SharedPreferences prefs = this.getSharedPreferences("Radio", MODE_PRIVATE);
+        String t = prefs.getString("Username", null);
+
+        songs = manager.getMaster_list();
+        manager.getMasterSongs();
+
+        addedSongs = manager.getAddedSong_list();
+        manager.getAddedSong();
+
+        for(AddedSong as : addedSongs )
+        {
+            for(Song s : songs)
+            {
+                if(t.equals(as.getUsername()) && s.getID().equals(as.getSongID()))
+                {
+                    list.add(s);
+                }
+            }
+        }
+
+
+        adapter = new AddedSongAdapter(songs);
+        rvContacts.setAdapter(adapter);
+
+        rvContacts.setLayoutManager(new LinearLayoutManager(this));
+
+
+        RecyclerView rvContacts = findViewById(R.id.ReAddedSongs);
+
+        rvContacts.addItemDecoration(new DividerItemDecoration(getApplicationContext(),DividerItemDecoration.VERTICAL));
+
+        manager = new DBSQLiteManager(this);
+
+        songs = manager.getMaster_list();
+        manager.getMasterSongs();
+
+        adapter = new AddedSongAdapter(songs);
+        rvContacts.setAdapter(adapter);
+
+        rvContacts.setLayoutManager(new LinearLayoutManager(this));
+*/
     }
 }

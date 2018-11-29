@@ -59,7 +59,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
 
                     manager.addSong(newSong);
 
-                    Toast.makeText(context, "Song Added!", Toast.LENGTH_LONG);
+                    Toast.makeText(context, "Song Added!", Toast.LENGTH_LONG).show();
 
                 }
             });

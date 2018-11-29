@@ -37,7 +37,6 @@ public class AddSongActivity extends AppCompatActivity {
             }
         });
 
-
         RecyclerView rvContacts = findViewById(R.id.recyclerView);
 
         rvContacts.addItemDecoration(new DividerItemDecoration(getApplicationContext(),DividerItemDecoration.VERTICAL));
