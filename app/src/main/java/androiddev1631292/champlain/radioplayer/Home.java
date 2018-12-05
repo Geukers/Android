@@ -20,6 +20,7 @@ public class Home extends AppCompatActivity {
         Button BtnList = findViewById(R.id.BtnList);
         Button BtnAbout = findViewById(R.id.BtnAbout);
         Button BtnContact = findViewById(R.id.BtnContact);
+        Button BtnLogOut = findViewById(R.id.BtnLogOut);
 
 
         BtnNews.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +64,15 @@ public class Home extends AppCompatActivity {
             public void onClick(View v) {
 
                 startActivity(new Intent(Home.this, Contact_Us.class));
+
+            }
+        });
+
+        BtnLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(Home.this, Login.class));
 
             }
         });

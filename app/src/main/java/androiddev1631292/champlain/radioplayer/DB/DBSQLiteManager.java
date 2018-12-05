@@ -156,6 +156,32 @@ public class DBSQLiteManager extends SQLiteOpenHelper {
         return master_list;
     }
 
+    public Song getSong(String ID)
+    {
+        String query = "SELECT * FROM " + Song.TABLE_NAME + " WHERE " + Song.COLUMN_ID + " = " + ID;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        Song c = new Song();
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                c.setID(cursor.getInt(cursor.getColumnIndex(Song.COLUMN_ID)));
+                c.setName(cursor.getString(cursor.getColumnIndex(Song.COLUMN_NAME)));
+                c.setArtist(cursor.getString(cursor.getColumnIndex(Song.COLUMN_ARTIST)));
+                c.setAlbum(cursor.getString(cursor.getColumnIndex(Song.COLUMN_ALBUM)));
+                c.setGenre(cursor.getString(cursor.getColumnIndex(Song.COLUMN_GENRE)));
+                c.setYear(cursor.getString(cursor.getColumnIndex(Song.COLUMN_YEAR)));
+            } while (cursor.moveToNext());
+        }
+
+        // close db connection
+        db.close();
+        return c;
+    }
+
 
     //
     //Add songs to AddedSong

@@ -1,6 +1,7 @@
 package androiddev1631292.champlain.radioplayer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -31,10 +32,11 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
         public TextView YearSong;
         public TextView Id;
         public View AddButton;
+        public View ViewButton;
 
         // We also create a constructor that accepts the entire item row
         // and does the view lookups to find each subview
-        public ViewHolder(View itemView) {
+        public ViewHolder(final View itemView) {
             // Stores the itemView in a public final member variable that can be used
             // to access the context from any ViewHolder instance.
             super(itemView);
@@ -45,6 +47,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
             YearSong = itemView.findViewById(R.id.TxtYear);
             Id = itemView.findViewById(R.id.TxtID);
             AddButton = (Button) itemView.findViewById(R.id.BtnAdd);
+            ViewButton = (Button) itemView.findViewById(R.id.BtnView);
 
             AddButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -63,6 +66,21 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
 
                 }
             });
+
+            ViewButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    int id = mSongs.get(getLayoutPosition()).getID();
+
+                    Intent i = new Intent(context, ItemActivity.class);
+
+                    i.putExtra("ID", id);
+
+                    context.startActivity(i);
+                }
+            });
+
         }
     }
 
@@ -74,7 +92,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
     // Pass in the contact array into the constructor
     public SongAdapter(List<Song> songs, Context context, DBSQLiteManager manager) {
         mSongs = songs;
-        this.context=context;
+        this.context = context;
         this.manager = manager;
     }
 
